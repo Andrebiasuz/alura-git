@@ -3,10 +3,17 @@
 #include <stdbool.h>
 #include <ctype.h>
 
+// functions
+
+void title() {
+    printf("******************************\n");
+    printf(" Welcome to the Hangman game   \n");
+    printf("******************************\n\n");
+}
+
 int main() {
 
     char previous_guess[26];
-
     char game_word[20];
     int mistake = 0;
     int counter = 0;
@@ -18,15 +25,18 @@ int main() {
     bool hanged = false;
     bool guess_finder = false;
     bool mistake_finder = true;
+
     int letters_right = 0;
 
     sprintf(hidden_word, "VANDA");
+
 
     for (int i = 0; i < strlen(hidden_word); i++) { // fill gameword with spaces
         game_word[i] = '_';
         hidden_word[i] = toupper(hidden_word[i]);
     }
 
+    title();
     printf("%s\n", hidden_word);
 
     while (!hanged && !got_it) {
